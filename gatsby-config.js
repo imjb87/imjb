@@ -11,7 +11,6 @@ module.exports = {
         trackingId: "G-6JX7MMMC92",
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap"
+    "gatsby-plugin-react-helmet"
   ],
 };
