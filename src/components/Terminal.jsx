@@ -80,7 +80,7 @@ const Terminal = () => {
     }
 
     return (
-        <motion.div className="terminal font-mono h-full flex flex-col text-sm md:text-base text-green-400 transform origin-center w-full " initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.75 }}>
+        <motion.div className="terminal font-mono h-full flex flex-col text-sm md:text-base text-green-400 transform origin-center w-full " initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
             <div className="border-2 border-green-400 px-6 py-4">imjb.dev</div>
             <div className="border-2 border-green-400 border-t-0 flex flex-1 overflow-hidden p-6">
                 <div className="flex-1 h-full no-scrollbar overflow-y-scroll">
