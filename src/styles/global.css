@@ -9,9 +9,21 @@
         position: relative;
         background-image: radial-gradient(
             rgba(52, 211, 153, 0.1), rgb(17, 24, 39) 120%
-        ),
-        repeating-linear-gradient(rgb(17, 24, 39), rgb(17, 24, 39) 1px, transparent 1px, transparent 2px);
+        );
         box-shadow: 10px 10px 0px -1px rgba(52, 211, 153, 0.75); 
+    }
+
+    .terminal:after {
+        background: repeating-linear-gradient(rgb(17, 24, 39), rgb(17, 24, 39) 1px, transparent 1px, transparent 2px);
+        content: '';
+        display: block;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        opacity: .15;
+        pointer-events: none;
     }
 
     .no-scrollbar::-webkit-scrollbar {
