@@ -23,6 +23,13 @@
         @apply -left-4;
     }
 
+    .input::after {
+        content: '_';
+        display: inline-block;
+        animation: blink 1s step-end infinite;
+        vertical-align: top;
+    }
+
 }
 
 @layer utilities {

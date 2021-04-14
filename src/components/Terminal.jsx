@@ -10,11 +10,14 @@ import Work from './Work'
 
 const Terminal = () => {
 
+    const avgTypingDelay = 35;
+
     const inputRef = useRef();
     const scrollRef = useRef();
 
     const [show, setShow] = useState(false);
     const [state, setState] = useState([{ type: 'component', value: 'introduction' }]);
+    const [input, setInput] = useState('');
     
     const AvailableComponents = {
         'introduction': Introduction,
@@ -44,7 +47,7 @@ const Terminal = () => {
                 setState((prevState) => ([...prevState, { type: 'component', value: 'error' }]));
             }
 
-            inputRef.current.value = "";
+            setInput('');
         }
     }
 
@@ -65,8 +68,12 @@ const Terminal = () => {
         scrollRef.current.scrollIntoView(true);
     }
 
+    const handleChange = (e) => {
+        setInput(e.target.value.toLowerCase());
+    }
+
     return (
-        <motion.div className="font-mono h-full flex flex-col text-base text-green-400" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <motion.div className="font-mono h-full flex flex-col text-sm md:text-base text-green-400" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
             <div className="border border-green-400 -mb-px px-6 py-4 rounded-t-lg">imjb.dev</div>
             <div className="border border-green-400 flex flex-1 overflow-hidden p-6 rounded-b-lg">
                 <div className="flex-1 h-full no-scrollbar overflow-y-scroll">
@@ -76,7 +83,7 @@ const Terminal = () => {
                             if( item.type === "component" ) {
                                 const Component = AvailableComponents[item.value];
                                 return (
-                                    <Component key={index} showCursor={() => showCursor(index + 1)} />
+                                    <Component key={index} showCursor={() => showCursor(index + 1)} avgTypingDelay={avgTypingDelay} />
                                 )
                             } else {
                                 return <div className="caret" key={index}>{item.value}</div>
@@ -84,7 +91,10 @@ const Terminal = () => {
                         })
                     }
                     </div>
-                    <div className={`caret ml-4 ${show ? "block" : "hidden"}`}><input className="bg-transparent focus:outline-none w-full" type="text" onBlur={({ target }) => { target.focus() }} onKeyDown={(e) => onSubmit(e)} autoFocus={true} ref={inputRef} /></div>
+                    <div className={`caret ml-4 relative ${show ? "block" : "hidden"}`}>
+                        <div className="input absolute left-0 top-0 w-full">{input}</div>
+                        <input className="bg-transparent focus:outline-none opacity-0" type="text" onBlur={({ target }) => { target.focus() }} onKeyDown={(e) => onSubmit(e)} onChange={handleChange} autoFocus={true} ref={inputRef} value={input.toLowerCase()}/>
+                    </div>
                     <div className="clear-both float-left" ref={scrollRef}></div>
                 </div>
             </div>
