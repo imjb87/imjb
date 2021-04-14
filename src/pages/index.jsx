@@ -20,7 +20,7 @@ const IndexPage = () => {
   return (
     <main className="bg-gray-900">
       <Seo title="Homepage" />
-      <div className="container h-screen px-6 xl:max-w-screen-lg mx-auto py-6 md:py-28">
+      <div className="container h-screen px-6 xl:max-w-screen-lg mx-auto py-6 md:py-28 flex items-center justify-center">
         <Terminal />
       </div>
     </main>

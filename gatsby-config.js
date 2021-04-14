@@ -15,6 +15,16 @@ module.exports = {
         trackingId: "G-6JX7MMMC92",
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `imjb`,
+        short_name: `imjb`,
+        start_url: `/`,
+        display: `standalone`,
+        icon: `src/images/logo.svg`
+      },
+    },    
     "gatsby-plugin-react-helmet"
   ], 
 };

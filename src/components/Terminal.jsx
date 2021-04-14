@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react"
+import React, { useState, useRef, useCallback, useEffect } from "react"
 import { motion } from "framer-motion"
 import { useResizeDetector } from 'react-resize-detector';
 
@@ -18,6 +18,13 @@ const Terminal = () => {
     const [show, setShow] = useState(false);
     const [state, setState] = useState([{ type: 'component', value: 'introduction' }]);
     const [input, setInput] = useState('');
+    const [booted, setBooted] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setBooted(true)
+        }, 750)
+    }, [booted]);
     
     const AvailableComponents = {
         'introduction': Introduction,
@@ -73,12 +80,13 @@ const Terminal = () => {
     }
 
     return (
-        <motion.div className="font-mono h-full flex flex-col text-sm md:text-base text-green-400" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <motion.div className="terminal font-mono h-full flex flex-col text-sm md:text-base text-green-400 transform origin-center w-full" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.75 }}>
             <div className="border border-green-400 -mb-px px-6 py-4 rounded-t-lg">imjb.dev</div>
             <div className="border border-green-400 flex flex-1 overflow-hidden p-6 rounded-b-lg">
                 <div className="flex-1 h-full no-scrollbar overflow-y-scroll">
                     <div className="max-w-screen-md ml-4" ref={ref}>
                     {
+                        booted &&
                         state.map((item, index) => {
                             if( item.type === "component" ) {
                                 const Component = AvailableComponents[item.value];
