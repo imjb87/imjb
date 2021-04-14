@@ -10,7 +10,8 @@
         background-image: radial-gradient(
             rgba(52, 211, 153, 0.1), rgb(17, 24, 39) 120%
         ),
-        repeating-linear-gradient(rgb(17, 24, 39), rgb(17, 24, 39) 1px, transparent 1px, transparent 2px);        
+        repeating-linear-gradient(rgb(17, 24, 39), rgb(17, 24, 39) 1px, transparent 1px, transparent 2px);
+        box-shadow: 10px 10px 0px -1px rgba(52, 211, 153, 0.75); 
     }
 
     .no-scrollbar::-webkit-scrollbar {
