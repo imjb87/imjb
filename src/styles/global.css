@@ -10,7 +10,7 @@
         background-image: radial-gradient(
             rgba(52, 211, 153, 0.1), rgb(17, 24, 39) 120%
         );
-        box-shadow: 10px 10px 0px -1px rgba(52, 211, 153, 0.75); 
+        box-shadow: 3px 3px 0px -1px rgb(17, 24, 39), 10px 10px 0px -1px rgba(52, 211, 153, 0.75); 
     }
 
     .terminal:after {
