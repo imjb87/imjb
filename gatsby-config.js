@@ -1,6 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: "imjb",
+    title: "IMJB",
+    titleTemplate: "%s · imjb",
+    description:
+      "John Bell, Web Developer. West Yorkshire, UK",
+    url: "https://www.imjb.dev", // No trailing slash allowed!
   },
   plugins: [
     "gatsby-plugin-postcss",

@@ -9,7 +9,7 @@ const Error = (props) => {
     return (
         <div className="caret">
             <p className="text-red-400">That command is not recognised.</p>
-            <p>Type "help" and press ENTER to see a list of available commands.</p>
+            <p>Type 'help' and press ENTER to see a list of available commands.</p>
         </div>
     )
 }
