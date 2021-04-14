@@ -9,7 +9,10 @@
     }
 
     .terminal {
-        text-shadow: 0 0 3px rgb(52, 211, 153);
+        animation-duration: 0.01s;
+        animation-name: flicker;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
         position: relative;
         background-image: radial-gradient(
             rgba(52, 211, 153, 0.1), rgb(17, 24, 39) 120%
@@ -26,7 +29,7 @@
         position: absolute;
         left: 2px;
         top: 2px;
-        opacity: .15;
+        opacity: .2;
         pointer-events: none;
     }
 
@@ -64,5 +67,14 @@
         from, to { opacity: 0 }
         50% { opacity: 1 }
     }
+
+    @keyframes flicker {
+        from {
+          text-shadow: 0.5px 0 0 rgb(17, 24, 39), -0.5px 0 0 #75fa69;
+        }
+        to {
+          text-shadow: 1px 0.5px 1px rgb(17, 24, 39), -1px -0.5px 1px #75fa69;
+        }
+    }    
 
 }
