@@ -4,6 +4,10 @@
 
 @layer base {
 
+    html, body {
+        @apply bg-gray-900;
+    }
+
     .terminal {
         text-shadow: 0 0 3px rgb(52, 211, 153);
         position: relative;
